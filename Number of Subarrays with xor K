@@ -1,3 +1,5 @@
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -5,7 +7,7 @@ int subarraysWithXorK(vector<int> a, int k) {
     int n = a.size(); //size of the given array.
     int xr = 0;
     map<int, int> mpp; //declaring the map.
-    mpp[xr]++; //setting the value of 0. and also making it (0,1)
+    mpp[xr]++; //setting the value of 0. and also making it (0,1) where 1 is the count of prefix XORs.
     int cnt = 0;
 
     for (int i = 0; i < n; i++) {
