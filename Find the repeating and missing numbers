@@ -1,4 +1,5 @@
-
+// Used maths formula tto derive it 
+// That is x + y = num1 & x - y = num2 .
 
 #include <bits/stdc++.h>
 using namespace std;
