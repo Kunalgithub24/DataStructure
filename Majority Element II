@@ -7,9 +7,9 @@ public:
         int count2 = 0;
 
         for (const int num : nums) {
-            if (num == majority1) {
+            if (num == majority1) { // shows the elem 1 variable 
                 count1++;
-            } else if (num == majority2) {
+            } else if (num == majority2) { shows the elem 2 variable 
                 count2++;
             } else if (count1 == 0) {
                 majority1 = num;
