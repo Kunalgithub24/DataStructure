@@ -1,1 +1,28 @@
 
+class Solution {
+public:
+    vector<int> rearrangeArray(vector<int>& nums) {
+        int n=nums.size();
+        vector<int>positive;//to store the positive integers
+        vector<int>negative;//to store the negative integers
+        vector<int>result;// final vector to send the results
+        
+        //loop to segregate the +ve || -ve numbers from the nums vector
+        for(int i=0;i<n;i++){
+            if(nums[i]<0)
+            negative.push_back(nums[i]);
+            else
+            positive.push_back(nums[i]);
+        }
+        //the greates hack is it is clearly mentioned in the question 
+        //that there are equal no. of +ve && -ve no.s . So no tension about loop.XD
+        int m=positive.size();
+        //simple loop adding to result vector
+        // Make sure to add +ve first then a -ve.
+        for(int i=0;i<m;i++){
+            result.push_back(positive[i]);
+            result.push_back(negative[i]);
+        }
+        return result;        
+    }
+};
