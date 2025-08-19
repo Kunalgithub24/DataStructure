@@ -1,1 +1,43 @@
 
+class Solution {
+public:
+   // Helper function to calculate total hours needed at a given eating speed
+    long long calculateHours(vector<int>& piles, int speed) {
+        long long totalHours = 0;
+        int n = piles.size();
+        for (int i = 0; i < n; i++) {
+            // Using ceil to determine hours needed per pile
+            totalHours += ceil((double)piles[i] / (double)speed);
+        }
+        return totalHours;
+    }
+
+    // Helper function to get the maximum pile size
+    int getMaxPile(vector<int>& piles) {
+        int maximum = INT_MIN;
+        for (int i = 0; i < piles.size(); i++) {
+            maximum = max(maximum, piles[i]);
+        }
+        return maximum;
+    }
+
+    // Main function to find the minimum eating speed
+    int minEatingSpeed(vector<int>& piles, int h) {
+        long long low = 1;
+        long long high = getMaxPile(piles);
+
+        while (low <= high) {
+            long long mid = low + (high - low) / 2;
+            long long hoursNeeded = calculateHours(piles, mid);
+
+            if (hoursNeeded <= h) {
+                // Try a lower speed
+                high = mid - 1;
+            } else {
+                // Need a higher speed
+                low = mid + 1;
+            }
+        }
+        return low; // This is the smallest speed that works
+    }
+};
