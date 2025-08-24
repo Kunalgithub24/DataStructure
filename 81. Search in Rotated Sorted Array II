@@ -1,0 +1,28 @@
+// Its related to a problem i have only added 'this' line .
+// the problem is : 33. Search in Rotated Sorted Array .
+class Solution {
+public:
+    bool search(vector<int>& nums, int target) {
+        int low = 0, high = nums.size()-1;
+        while(low<=high){
+            int mid = (low+high)/2;
+            if(nums[mid]==target) return true;
+            if(nums[low]==nums[mid] && nums[mid]==nums[high]){ // THIS 
+                low+=1;high-=1;continue;
+            }
+            if(nums[low]<=nums[mid]){
+                if(target>=nums[low] && target<=nums[mid]){
+                    high = mid-1;
+                }
+                else low = mid+1;
+            }
+            else{
+                if(target>=nums[mid] && target<=nums[high]){
+                    low = mid+1;
+                }
+                else high = mid-1;
+            }
+        }
+        return false;
+    }
+};
