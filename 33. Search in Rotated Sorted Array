@@ -1,0 +1,35 @@
+class Solution {
+public:
+    int search(vector<int>& arr, int target) { 
+        // seaching in rotated sorted array with binary search
+
+        int st = 0 , end = arr.size()-1;
+
+        while( st <= end ) {
+
+            // STEP - 1 =>  FIND MID FIRST AND CHECK MID 
+            int mid = st + ( end - st ) / 2;
+            if( arr[mid] == target ) return mid;
+
+            // STEP - 2 => CHECK WHICH PART IS SORTED
+            if ( arr[st] <= arr[mid] ) {
+                // LEFT PART IS SORTED
+
+                // STEP - 3 => CHECK TARGET KISS PART LIE KAREGA
+                if( arr[st] <= target and target <= arr[ mid ] )
+                    end = mid - 1;
+                else
+                    st = mid + 1;
+            }else{
+                // RIGHT PART IS SORTED
+
+                if( arr[mid] <= target and target <= arr[end] )
+                    st = mid + 1;
+                else
+                    end = mid - 1;
+            }
+        }
+        
+        return -1;  // TARGET NOT FOUND
+    }
+};
