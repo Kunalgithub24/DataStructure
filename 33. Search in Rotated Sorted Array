@@ -21,7 +21,6 @@ public:
                 else
                     st = mid + 1;
             }else{
-
                 // RIGHT PART IS SORTED
 
                 if( arr[mid] <= target and target <= arr[end] )
