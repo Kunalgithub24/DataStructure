@@ -29,7 +29,6 @@ public:
                     end = mid - 1;
             }
         }
-        
         return -1;  // TARGET NOT FOUND
     }
 };
