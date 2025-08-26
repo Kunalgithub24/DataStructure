@@ -1,0 +1,35 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        
+        ListNode* slow = head;
+        ListNode* fast = head;
+        // Tortoise and hare algorithm
+        while( fast && fast->next ){
+            slow = slow->next;
+            fast = fast->next->next;
+            
+            if( slow == fast ){
+                // Cycle detected
+                slow = head;
+                // Determining the starting point
+                while( slow != fast ){
+                    slow = slow->next;
+                    fast = fast->next;
+                }
+                // when slow == fast , the start of the cycle is found
+                return slow;
+            }
+        }
+        // when no cycle is detected nullptr is returned
+        return nullptr;
+    }
+};
