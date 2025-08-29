@@ -1,6 +1,7 @@
 // LeetCode Problem: Count of Reverse Pairs
 // Optimal approach that uses merge sort and a memory space
 
+
 class Solution {
 private: 
     void merge(vector<int>& nums, int low, int mid, int high, int& reversePairsCount){
