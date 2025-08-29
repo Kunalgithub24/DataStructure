@@ -6,6 +6,7 @@ public:
             if (load + w > cap) { 
                 days++;
                 load = w;
+
             } else {
                 load += w;
             }
