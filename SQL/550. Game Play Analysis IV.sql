@@ -9,7 +9,6 @@ where ( player_id, date_sub(event_date, interval 1 day)) in
     )
 
 
-
 -- round(count(distinct player_id) give the number of player from down where claus : that is 1
 -- (select count(distinct player_id) from activity) gives all the player in the table : that is  3
 
