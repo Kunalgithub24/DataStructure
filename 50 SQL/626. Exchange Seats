@@ -1,0 +1,24 @@
+# Write your MySQL query statement below
+
+-- SWAP NUMBERS:
+-- working of case when :
+-- goes to id 1
+-- then id 2
+-- then id 3 and each time checks all the whens ...
+
+-- at id 1, check stmt 1 : false , then check stmt 2 : true then NEXT
+-- at id 2, check ....
+
+select 
+    case 
+        when 
+            id = (select max(id) from seat) and mod(id,2)=1 
+            then id
+        when 
+            mod(id,2)=1
+            then id+1
+        else
+            id-1
+    end as id, student
+from seat
+order by id
