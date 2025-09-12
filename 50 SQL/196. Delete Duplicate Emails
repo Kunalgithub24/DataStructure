@@ -1,0 +1,4 @@
+# Write your MySQL query statement below
+delete p1
+from person p1 inner join person p2
+where 196. Delete Duplicate Emailsp1.email = p2.email and p1.id > p2.id
