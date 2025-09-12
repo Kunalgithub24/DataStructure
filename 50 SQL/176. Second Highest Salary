@@ -1,0 +1,26 @@
+# Write your MySQL query statement below
+
+-- SELECT MAX(Salary)
+-- FROM Employee
+-- WHERE Salary < (SELECT MAX(Salary) FROM Employee);
+
+-- | MAX(Salary) |
+-- | ----------- |
+-- | 200         |  but null is not couverd 
+
+
+
+-- thus used inner join :
+-- select *
+-- from employee e1 inner join employee e2
+-- on e1.salary < e2.salary
+
+-- | id | salary | id | salary |
+-- | -- | ------ | -- | ------ |
+-- | 1  | 100    | 2  | 200    |
+-- | 2  | 200    | 3  | 300    |
+-- | 1  | 100    | 3  | 300    |
+
+select max(e1.salary) as SecondHighestSalary 
+from employee e1 inner join employee e2
+on e1.salary < e2.salary
